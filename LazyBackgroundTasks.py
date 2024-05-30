@@ -1,3 +1,10 @@
+from types import FunctionType
+from functools import wraps
+from typing import Dict, List
+
+from django.utils import timezone
+from django.db.models.base import ModelBase
+
 class LazyBackgroundTasks(ModelBase):
     """
     A metaclass that allows for the scheduling and lazy execution of class methods as background tasks.
