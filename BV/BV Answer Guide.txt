@@ -1,0 +1,6 @@
+BV Answer Guide:
+1) BitVector is used to store a set of numbers, and it does so by setting the bit in x-th position to 1 if x is in the set.
+2) The nature of the data representation ^ also means set operations such as union, intersection, etc are trivially implemented with bitwise operations.
+3) It's ridiculously more memory efficient (1 bit for 1 number + overhead VS 64 bits for 1 number) except in a situation where the majority of numbers are sparse and there's a single ridiculously large number as it would result in a lot of empty lists. This could be mitigated by increasing the word size or by making self.words itself sparse.
+4) The current implementation can be improved by adding defining a __len__ with a self.count attribute so that returning the size of the set becomes an O(1) operation instead of an O(n) operation.
+5) has() and remove() are O(1) operations. add() is typically O(1) but it's O(n) the first time a large number that's outside the current words is added.
